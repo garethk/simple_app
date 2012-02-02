@@ -12,10 +12,14 @@ group :development do
 end
 
 group :test do
-    gem 'rspec', '2.0.1'
+    gem 'rspec-rails', '2.0.1'
     gem 'webrat', '0.7.1'
 
     gem 'spork', '0.9.0.rc8'
+
+    gem 'autotest'
+    gem 'autotest-rails-pure'
+    gem 'autotest-notification'
 end
 
 # Use unicorn as the web server
