@@ -91,7 +91,13 @@ describe UsersController do
       it "should reset the password field" do
         user_with_password = User.new(@attr.merge(:password => "foobar"))
         post :create, :user => user_with_password
-        field_labelled('user_password').value.should be_blank
+        response.should have_selector("input[name='user[password]'][value='']")
+      end
+
+      it "should reset the password confirmation field" do
+        user_with_password_confirmation = User.new(@attr.merge(:password_confirmation => "foobar"))
+        post :create, :user => user_with_password_confirmation
+        response.should have_selector("input[name='user[password_confirmation]'][value='']")
       end
     end
 
